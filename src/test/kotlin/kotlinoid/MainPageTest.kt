@@ -27,7 +27,12 @@ class MainPageTest {
         @JvmStatic
         internal fun beforeAll() {
             LOGGER.info("Init main page tests setup")
-            SelenideLogger.addListener("allure", AllureSelenide())
+            SelenideLogger.addListener(
+                "AllureSelenide",
+                AllureSelenide()
+                    .screenshots(true)
+                    .savePageSource(false)
+            )
         }
 
         @AfterAll
